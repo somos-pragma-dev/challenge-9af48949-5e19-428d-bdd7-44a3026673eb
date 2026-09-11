@@ -1,0 +1,262 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "BedrockModelAccess",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream",
+        "bedrock:GetFoundationModel",
+        "bedrock:ListFoundationModels",
+        "bedrock:GetInferenceProfile",
+        "bedrock:ListInferenceProfiles"
+      ],
+      "Resource": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"
+    },
+    {
+      "Sid": "BedrockReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:ListCustomModels",
+        "bedrock:GetCustomModel",
+        "bedrock:ListPrompts",
+        "bedrock:GetPrompt"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3DocumentsAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:ListBucket",
+        "s3:GetBucketLocation",
+        "s3:HeadBucket",
+        "s3:HeadObject",
+        "s3:HeadObjectVersion"
+      ],
+      "Resource": [
+        "arn:aws:s3:::normative-rag-documents-prod-*",
+        "arn:aws:s3:::normative-rag-documents-prod-*/*"
+      ]
+    },
+    {
+      "Sid": "S3WriteForUploads",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+      ],
+      "Resource": "arn:aws:s3:::normative-rag-documents-prod-*/uploads/*"
+    },
+    {
+      "Sid": "DynamoDBEvaluations",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:Query",
+        "dynamodb:Scan",
+        "dynamodb:BatchGetItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:DescribeTable",
+        "dynamodb:ListTables"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:us-east-1:*:table/normative-rag-evaluations-prod",
+        "arn:aws:dynamodb:us-east-1:*:table/normative-rag-evaluations-prod/index/*"
+      ]
+    },
+    {
+      "Sid": "DynamoDBQueryHistory",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:Query"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:us-east-1:*:table/normative-rag-query-history",
+        "arn:aws:dynamodb:us-east-1:*:table/normative-rag-query-history/index/*"
+      ]
+    },
+    {
+      "Sid": "OpenSearchServerlessAccess",
+      "Effect": "Allow",
+      "Action": [
+        "aoss:APIAccess",
+        "aoss:ListCollections",
+        "aoss:DescribeCollection",
+        "aoss:ListAccessPolicies",
+        "aoss:ListSecurityPolicies",
+        "aoss:ListTagsForResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "OpenSearchVectorSearch",
+      "Effect": "Allow",
+      "Action": [
+        "aoss:CreateIndex",
+        "aoss:DeleteIndex",
+        "aoss:UpdateIndex",
+        "aoss:Search",
+        "aoss:BulkSearch",
+        "aoss:BulkWrite",
+        "aoss:GetIndex",
+        "aoss:ListIndexes",
+        "aoss:CreateDocument",
+        "aoss:DeleteDocument",
+        "aoss:UpdateDocument",
+        "aoss:GetDocument"
+      ],
+      "Resource": "arn:aws:aoss:us-east-1:*:collection/normative-rag-vectors"
+    },
+    {
+      "Sid": "CloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:us-east-1:*:log-group:/aws/lambda/normative-rag-api-prod*",
+        "arn:aws:logs:us-east-1:*:log-group:/aws/apigateway/normative-rag-api-prod*"
+      ]
+    },
+    {
+      "Sid": "CloudWatchMetrics",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:PutMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics",
+        "cloudwatch:DescribeAlarms"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "XRayReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "xray:PutTraceSegments",
+        "xray:PutTelemetryRecords",
+        "xray:GetSamplingRules",
+        "xray:GetSamplingTargets",
+        "xray:GetSamplingStatisticSummaries"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SecretsManagerAccess",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:ListSecrets"
+      ],
+      "Resource": [
+        "arn:aws:secretsmanager:us-east-1:*:secret:normative-rag/*",
+        "arn:aws:secretsmanager:us-east-1:*:secret:bedrock-api-key-*"
+      ]
+    },
+    {
+      "Sid": "KMSDecrypt",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:ReEncrypt*"
+      ],
+      "Resource": "arn:aws:kms:us-east-1:*:key/*"
+    },
+    {
+      "Sid": "EventBridgeEvents",
+      "Effect": "Allow",
+      "Action": [
+        "events:PutEvents",
+        "events:DescribeEventBus",
+        "events:ListRules",
+        "events:ListTargetsByRule"
+      ],
+      "Resource": "arn:aws:events:us-east-1:*:event-bus/default"
+    },
+    {
+      "Sid": "LambdaInvocation",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:InvokeFunction",
+        "lambda:InvokeAsync"
+      ],
+      "Resource": [
+        "arn:aws:lambda:us-east-1:*:function:normative-rag-*"
+      ]
+    },
+    {
+      "Sid": "DenyS3DeleteBucket",
+      "Effect": "Deny",
+      "Action": "s3:DeleteBucket",
+      "Resource": "arn:aws:s3:::normative-rag-documents-prod-*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalTag/role": "admin"
+        }
+      }
+    },
+    {
+      "Sid": "DenyDeleteEvaluationData",
+      "Effect": "Deny",
+      "Action": [
+        "dynamodb:DeleteTable",
+        "dynamodb:DeleteItem"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:us-east-1:*:table/normative-rag-evaluations-prod"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalTag/role": "admin"
+        }
+      }
+    },
+    {
+      "Sid": "DenyModifyIAM",
+      "Effect": "Deny",
+      "Action": [
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy"
+      ],
+      "Resource": "arn:aws:iam::*:role/normative-rag-*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalTag/role": "admin"
+        }
+      }
+    }
+  ],
+  "Description": "Política IAM para el sistema de respuestas normativas con modelos generativos. Otorga acceso a Bedrock, S3, DynamoDB, OpenSearch Serverless, CloudWatch y Secrets Manager.",
+  "Name": "normative-rag-lambda-policy-prod",
+  "Tags": {
+    "Project": "normative-rag-system",
+    "Environment": "prod",
+    "ManagedBy": "terraform",
+    "CostCenter": "Cumplimiento"
+  }
+}

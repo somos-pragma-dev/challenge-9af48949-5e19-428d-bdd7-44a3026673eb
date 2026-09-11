@@ -1,0 +1,43 @@
+[project]
+name = "normative-rag-system"
+version = "0.1.0"
+description = "Sistema de respuestas normativas con modelos generativos"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi==0.115.0",
+    "uvicorn==0.30.1",
+    "langchain==0.2.5",
+    "langchain-aws==0.1.5",
+    "langgraph==0.0.48",
+    "pydantic==2.7.1",
+    "boto3==1.34.123",
+    "numpy==1.26.4",
+    "pandas==2.2.2",
+    "python-dotenv==1.0.1",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest==8.2.0",
+    "httpx==0.27.0",
+]
+dev = [
+    "pytest==8.2.0",
+    "httpx==0.27.0",
+    "python-dotenv==1.0.1",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-q --tb=short"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"

@@ -1,0 +1,163 @@
+{
+  "evaluation_dataset": [
+    {
+      "id": "eval_001",
+      "query": "¿Cuál es el plazo máximo para responder a una solicitud de acceso a datos personales según el RGPD?",
+      "expected_context": ["El plazo máximo para responder a una solicitud de acceso a datos personales es de un mes desde la recepción de la solicitud.", "Este plazo puede extenderse hasta dos meses adicionales en casos de complejidad o volumen de solicitudes.", "La respuesta debe proporcionarse en un formato legible y accesible."],
+      "expected_response_pattern": "plazo.*un mes|30 días|treinta días",
+      "category": "rgpd_derechos",
+      "keywords": ["plazo", "acceso", "datos personales", "RGPD", "mes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eval_002",
+      "query": "¿Qué medidas de seguridad debo implementar para proteger los datos personales de los clientes?",
+      "expected_context": ["Se deben implementar medidas técnicas y organizativas apropiadas para garantizar la seguridad de los datos personales.", "Estas medidas incluyen el cifrado de datos, el control de acceso, la autenticación de dos factores y la formación del personal.", "El responsable del tratamiento debe evaluar los riesgos y aplicar medidas proporcionales."],
+      "expected_response_pattern": "medidas técnicas|medidas organizativas|cifrado|control de acceso",
+      "category": "rgpd_seguridad",
+      "keywords": ["medidas de seguridad", "datos personales", "cifrado", "control de acceso"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eval_003",
+      "query": "¿Cuál es el procedimiento para reportar una brecha de seguridad que afecte a datos personales?",
+      "expected_context": ["En caso de brecha de seguridad que afecte a datos personales, se debe notificar a la autoridad de protección de datos en un plazo máximo de 72 horas.", "Si la brecha representa un alto riesgo para los derechos de las personas, también debe notificarse a los afectados sin dilación.", "La notificación debe incluir la naturaleza de la brecha, las categorías y número de afectados, y las medidas adoptadas."],
+      "expected_response_pattern": "72 horas|setenta y dos horas|notificar a la autoridad|notificar a los afectados",
+      "category": "rgpd_brechas",
+      "keywords": ["brecha", "seguridad", "notificación", "72 horas", "autoridad de control"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eval_004",
+      "query": "¿Puedo tratar datos personales de menores de edad sin consentimiento de sus padres?",
+      "expected_context": ["El tratamiento de datos de menores de 16 años requiere el consentimiento de sus padres o tutores legales.", "Los servicios de la sociedad de la información dirigidos a menores deben verificar la edad y obtener el consentimiento parental.", "El responsable debe verificar la edad y la identidad del padre, madre o tutor."],
+      "expected_response_pattern": "menores de 16 años|consentimiento parental|padres|tutores",
+      "category": "rgpd_menores",
+      "keywords": ["menores", "consentimiento", "padres", "tutores", "edad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eval_005",
+      "query": "¿Qué derechos tienen los interesados respecto al tratamiento de sus datos personales?",
+      "expected_context": ["Los interesados tienen derecho de acceso, rectificación, supresión, limitación del tratamiento, portabilidad y oposición.", "El derecho de acceso permite obtener información sobre los datos tratados y las finalidades del tratamiento.", "El derecho de supresión permite solicitar la eliminación de datos cuando ya no son necesarios o el consentimiento ha sido retirado."],
+      "expected_response_pattern": "derecho de acceso|derecho de rectificación|derecho de supresión|derecho de portabilidad",
+      "category": "rgpd_derechos",
+      "keywords": ["derechos", "acceso", "rectificación", "supresión", "portabilidad", "oposición"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eval_006",
+      "query": "¿Cómo debo realizar una evaluación de impacto en la protección de datos personales?",
+      "expected_context": ["La evaluación de impacto en la protección de datos (EIPD) es obligatoria cuando el tratamiento puede generar un alto riesgo para los derechos de los interesados.", "La EIPD debe incluir una descripción del tratamiento, la evaluación de la necesidad y proporcionalidad, los riesgos para los derechos de los interesados y las medidas para mitigarlos.", "Debe realizarse antes de iniciar el tratamiento y consultarse con la autoridad de control cuando los riesgos no puedan mitigarse."],
+      "expected_response_pattern": "evaluación de impacto|EIPD|alto riesgo|medidas|autoridad de control",
+      "category": "rgpd_evaluacion",
+      "keywords": ["evaluación de impacto", "EIPD", "riesgos", "medidas", "autoridad"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eval_007",
+      "query": "¿Cuál es la normativa aplicable al tratamiento de datos de salud?",
+      "expected_context": ["Los datos de salud son categoría especial de datos personales y requieren protección reforzada.", "Su tratamiento está prohibido salvo excepciones previstas en el artículo 9 del RGPD, como el consentimiento explícito o razones de interés público.", "El tratamiento de datos de salud requiere garantías adicionales como la minimización de datos y la limitación del acceso."],
+      "expected_response_pattern": "categoría especial|datos de salud|artículo 9|consentimiento explícito|interés público",
+      "category": "rgpd_categorias_especiales",
+      "keywords": ["datos de salud", "categoría especial", "consentimiento", "artículo 9"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eval_008",
+      "query": "¿Qué información debo proporcionar al interesado en el momento de recogida de datos personales?",
+      "expected_context": ["En el momento de recogida de datos, debe informarse al interesado sobre la identidad del responsable, la finalidad del tratamiento, los destinatarios, el plazo de conservación y sus derechos.", "También debe informarse sobre la base jurídica del tratamiento y, en su caso, la intención de transferir datos a terceros países.", "La información debe proporcionarse de forma concisa, transparente, inteligible y de fácil acceso."],
+      "expected_response_pattern": "identidad del responsable|finalidad|destinatarios-plazo de conservación|derechos|base jurídica",
+      "category": "rgpd_transparencia",
+      "keywords": ["información", "responsable", "finalidad", "derechos", "transparencia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eval_009",
+      "query": "¿Cómo puedo transferir datos personales a un país fuera del Espacio Económico Europeo?",
+      "expected_context": ["La transferencia de datos a países fuera del EEE requiere garantías adecuadas según el RGPD.", "Estas garantías incluyen decisiones de adecuación, cláusulas contractuales tipo o normas corporativas vinculantes.", "El destinatario debe garantizar un nivel de protección equivalente al europeo."],
+      "expected_response_pattern": "transferencia|EEE|decisión de adecuación|cláusulas contractuales tipo|normas corporativas",
+      "category": "rgpd_transferencias",
+      "keywords": ["transferencia", "EEE", "adecuación", "cláusulas", "tercer país"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eval_010",
+      "query": "¿Cuál es el régimen sancionador por incumplimiento del RGPD?",
+      "expected_context": ["El RGPD establece sanciones administrativas que pueden alcanzar los 20 millones de euros o el 4% del volumen de negocio anual global.", "Las sanciones se gradúan según la naturaleza de la infracción, el grado de culpabilidad, el beneficio obtenido y las medidas adoptadas.", "Antes de imponer una sanción, la autoridad de control debe dar audiencia al interesado."],
+      "expected_response_pattern": "20 millones|4%|volumen de negocio|sanciones administrativas|graduación",
+      "category": "rgpd_sanciones",
+      "keywords": ["sanciones", "multa", "20 millones", "4%", "infracción"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eval_011",
+      "query": "¿Qué es el derecho a la portabilidad de datos personales?",
+      "expected_context": ["El derecho a la portabilidad permite al interesado recibir sus datos personales en un formato estructurado y de uso común.", "El interesado puede transmitir esos datos a otro responsable sin que el responsable original lo impida.", "Este derecho aplica cuando el tratamiento se basa en el consentimiento o en un contrato y se realiza por medios automatizados."],
+      "expected_response_pattern": "formato estructurado|otro responsable|consentimiento|contrato|medios automatizados",
+      "category": "rgpd_derechos",
+      "keywords": ["portabilidad", "formato", "transferir", "responsable", "consenti"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eval_012",
+      "query": "¿Cuándo puedo tratar datos personales sin el consentimiento del interesado?",
+      "expected_context": ["El tratamiento sin consentimiento es posible cuando existe una base jurídica alternativa: ejecución de contrato, obligación legal, interés público o interés legítimo.", "El interés legítimo del responsable puede ser base jurídica si no prevalecen los intereses del interesado.", "Debe documentarse la base jurídica invocada y su análisis de ponderación."],
+      "expected_response_pattern": "base jurídica|ejecución de contrato|obligación legal|interés público|interés legítimo",
+      "category": "rgpd_base_juridica",
+      "keywords": ["consentimiento", "base jurídica", "contrato", "obligación", "interés"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "eval_013",
+      "query": "¿Qué es un delegdo de protección de datos y cuándo es obligatorio designarlo?",
+      "expected_context": ["El Delegado de Protección de Datos (DPD) es una figura que supervisa el cumplimiento de la normativa de protección de datos.", "Su designación es obligatoria en empresas que traten datos a gran escala, traten categorías especiales de datos o realicen perfilado sistemático.", "El DPD debe обладать conocimientos especializados y puede ser empleado o consultor externo."],
+      "expected_response_pattern": "DPD|Delegado de Protección de Datos|gran escala|categorías especiales|perfilado",
+      "category": "rgpd_dpd",
+      "keywords": ["Delegado", "DPD", "protección de datos", "obligatorio", "conocimiento"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "eval_014",
+      "query": "¿Cuál es la diferencia entre responsable y encargado del tratamiento?",
+      "expected_context": ["El responsable del tratamiento es quien decide los fines y medios del tratamiento de datos personales.", "El encargado del tratamiento es quien trata datos por cuenta del responsable siguiendo sus instrucciones.", "La relación entre ambos debe regularse mediante un contrato que especifique las instrucciones, el plazo y las obligaciones de seguridad."],
+      "expected_response_pattern": "responsable|encargado|fines|medios|instrucciones|contrato",
+      "category": "rgpd_roles",
+      "keywords": ["responsable", "encargado", "tratamiento", "instrucciones", "contrato"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "eval_015",
+      "query": "¿Cómo debo gestionar las solicitudes de ejercicio de derechos de los interesados?",
+      "expected_context": ["Las solicitudes de ejercicio de derechos deben responderse en el plazo máximo de un mes desde su recepción.", "El responsable debe verificar la identidad del solicitante antes de atender la solicitud.", "La respuesta debe provided en formato electrónico salvo que el interesado solicite otro formato.", "Si la solicitud es manifestamente infundada o excesiva, puede cobrarse un canon o rechazarse."],
+      "expected_response_pattern": "un mes|verificar identidad|formato electrónico|infundada|excesiva",
+      "category": "rgpd_derechos",
+      "keywords": ["solicitud", "derechos", "plazo", "identidad", "respuesta"],
+      "difficulty": "medium"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "created_date": "2024-01-15",
+    "total_cases": 15,
+    "categories": [
+      "rgpd_derechos",
+      "rgpd_seguridad",
+      "rgpd_brechas",
+      "rgpd_menores",
+      "rgpd_evaluacion",
+      "rgpd_categorias_especiales",
+      "rgpd_transparencia",
+      "rgpd_transferencias",
+      "rgpd_sanciones",
+      "rgpd_base_juridica",
+      "rgpd_dpd",
+      "rgpd_roles"
+    ],
+    "difficulty_distribution": {
+      "easy": 4,
+      "medium": 7,
+      "hard": 4
+    }
+  }
+}
